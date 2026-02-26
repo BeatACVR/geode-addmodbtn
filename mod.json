@@ -6,8 +6,8 @@
 		"mac": "2.2081",
 		"ios": "2.2081"
 	},
-	"id": "beat.mod_install_button",
-	"name": "Mod Install Button",
+	"id": "beat.legacy_mod_install_button",
+	"name": "Legacy Mod Install Button",
 	"version": "v1.0.0",
 	"developer": "Beat",
 	"description": "Brings back the install mod from file button",
