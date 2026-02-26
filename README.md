@@ -1,23 +1,6 @@
-# ModInstallButton
-This is where she makes a mod.
+# Mod Install Button
+Brings back the 'install mod from file' button from Geode versions prior to v5.
+In Geode v5, it was moved into Geode settings. This mod is for those who refuse to adapt to the modern age.
 
-<img src="logo.png" width="150" alt="the mod's logo" />
-
-*Update logo.png to change your mod's icon (please)*
-
-## Getting started
-We recommend heading over to [the getting started section on our docs](https://docs.geode-sdk.org/getting-started/) for useful info on what to do next.
-
-## Build instructions
-For more info, see [our docs](https://docs.geode-sdk.org/getting-started/create-mod#build)
-```sh
-# Assuming you have the Geode CLI set up already
-geode build
-```
-
-# Resources
-* [Geode SDK Documentation](https://docs.geode-sdk.org/)
-* [Geode SDK Source Code](https://github.com/geode-sdk/geode/)
-* [Geode CLI](https://github.com/geode-sdk/cli)
-* [Bindings](https://github.com/geode-sdk/bindings/)
-* [Dev Tools](https://github.com/geode-sdk/DevTools)
+Thank you Alphaneous for your Geode utils and for letting me steal some of your code.
+Mod logo NOT made by @voidcrypt.

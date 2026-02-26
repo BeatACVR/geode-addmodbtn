@@ -10,9 +10,18 @@
 	"name": "Mod Install Button",
 	"version": "v1.0.0",
 	"developer": "Beat",
-	"description": "",
+	"description": "Brings back the install mod from file button",
 	"dependencies": {
-		"geode.node-ids": ">=v1.20.0",
+		"geode.node-ids": ">=v1.23.0",
 		"alphalaneous.alphas_geode_utils": ">=v1.2.1"
+	},
+	"tags": [
+		"utility",
+		"interface",
+		"offline",
+		"enhancement"
+	],
+	"links": {
+		"source": "https://github.com/beatacvr/geode-addmodbtn"
 	}
 }
