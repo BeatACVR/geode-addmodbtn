@@ -88,13 +88,13 @@ class $nodeModify(AddBtnModsLayer, ModsLayer) {
 				return;
 			}
 		CCMenuItemSpriteExtra* installbtn = ccmenu->getChildByType<CCMenuItemSpriteExtra*>(2);
-		if (!installbtn) {
-			fail("trying to find install button.");
-			return;
-		} else {
-			installbtn->activate();
-			m_fields->m_settingsPopup->removeFromParentAndCleanup(true);
-		}
+			if (!installbtn) {
+				fail("trying to find install button.");
+				return;
+			} else {
+				installbtn->activate();
+				m_fields->m_settingsPopup->removeFromParentAndCleanup(true);
+			}
 	}
 
 	void fail(std::string reason) {
