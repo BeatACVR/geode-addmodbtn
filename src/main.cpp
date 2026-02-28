@@ -56,45 +56,20 @@ class $nodeModify(AddBtnModsLayer, ModsLayer) {
 		m_fields->m_settingsPopup = geode::openSettingsPopup(geodeLoader, false);
 		m_fields->m_settingsPopup->setVisible(false); // not necessary on my machine but i fear low end devices could need it.
 
-		// please merge geode pr #1844 so i dont have to do this fucking bullshit to get installbtn. this could be a one-liner.
-		CCLayer* layer = m_fields->m_settingsPopup->getChildByType<CCLayer*>(0);
-			if (!layer) {
-				fail("trying to find cclayer.");
-				return;
-			}
-		CCLayerColor* cclayercolor = layer->getChildByType<CCLayerColor*>(0);
-			if (!cclayercolor) {
-				fail("trying to find cclayercolor.");
-				return;
-			}
-		geode::ScrollLayer* scrolllayer = cclayercolor->getChildByType<geode::ScrollLayer*>(0);
-			if (!scrolllayer) {
-				fail("trying to find scrolllayer.");
-				return;
-			}
-		geode::GenericContentLayer* genericcontentlayer = scrolllayer->getChildByType<geode::GenericContentLayer*>(0);
-			if (!genericcontentlayer) {
-				fail("trying to find genericcontentlayer.");
-				return;
-			}
-		CCNode* setting = alpha::utils::cocos::getChildByClassName(genericcontentlayer, "CopyButtonSettingNode", 0).value_or(nullptr);
-			if (!setting) {
-				fail("trying to find CopyButtonSettingNode.");
-				return;
-			}
-		CCMenu* ccmenu = setting->getChildByType<CCMenu*>(1);
-			if (!ccmenu) {
-				fail("trying to find ccmenu.");
-				return;
-			}
-		CCMenuItemSpriteExtra* installbtn = ccmenu->getChildByType<CCMenuItemSpriteExtra*>(2);
-			if (!installbtn) {
-				fail("trying to find install button.");
-				return;
-			} else {
-				installbtn->activate();
-				m_fields->m_settingsPopup->removeFromParentAndCleanup(true);
-			}
+		CCNode* installNode = m_fields->m_settingsPopup->getChildByIDRecursive("install-from-file-button");
+		if (!installNode) {
+			fail("trying to find install button.");
+			return;
+		}
+		
+		CCMenuItemSpriteExtra* installbtn = typeinfo_cast<CCMenuItemSpriteExtra*>(installNode);
+		if (!installbtn) {
+			fail("trying to cast install button.");
+			return;
+		} else {
+			installbtn->activate();
+			m_fields->m_settingsPopup->removeFromParentAndCleanup(true);
+		}
 	}
 
 	void fail(std::string reason) {

@@ -1,5 +1,5 @@
 {
-	"geode": "5.0.0",
+	"geode": "5.2.0",
 	"gd": {
 		"win": "2.2081",
 		"android": "2.2081",
@@ -8,7 +8,7 @@
 	},
 	"id": "beat.legacy_mod_install_button",
 	"name": "Legacy Mod Install Button",
-	"version": "v1.0.0",
+	"version": "v1.1.0",
 	"developer": "Beat",
 	"description": "Brings back the install mod from file button",
 	"dependencies": {
