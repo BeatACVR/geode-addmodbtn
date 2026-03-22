@@ -1,5 +1,6 @@
 #include <Geode/Geode.hpp>
 #include <Geode/ui/GeodeUI.hpp>
+#include <Geode/ui/Button.hpp>
 #include <alphalaneous.alphas_geode_utils/include/ObjectModify.hpp>
 #include <alphalaneous.alphas_geode_utils/include/Utils.hpp>
 
@@ -62,7 +63,7 @@ class $nodeModify(AddBtnModsLayer, ModsLayer) {
 			return;
 		}
 		
-		CCMenuItemSpriteExtra* installbtn = typeinfo_cast<CCMenuItemSpriteExtra*>(installNode);
+		geode::Button* installbtn = typeinfo_cast<geode::Button*>(installNode);
 		if (!installbtn) {
 			fail("trying to cast install button.");
 			return;
