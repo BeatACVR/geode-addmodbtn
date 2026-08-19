@@ -9,12 +9,14 @@ using namespace geode::prelude;
 class $nodeModify(AddBtnModsLayer, ModsLayer) {
 	// modify code #stolen from alphalaneous and adapted
 	void modify() {
-		bool geodeTheme = Loader::get()->getLoadedMod("geode.loader")->getSettingValue<bool>("enable-geode-theme");
+		std::string geodeTheme = Loader::get()->getLoadedMod("geode.loader")->getSettingValue<std::string>("used-theme");
 		if (CCMenu* actionsMenu = typeinfo_cast<CCMenu*>(getChildByID("actions-menu"))) {
+			bool useDarkTheme = true;
+			if (geodeTheme == "Geometry Dash") useDarkTheme = false;
 
 			CCSprite* addspr = CircleButtonSprite::createWithSpriteFrameName(
 				"geode.loader/file-add.png", .85f,
-				(geodeTheme ? CircleBaseColor::DarkPurple : CircleBaseColor::Green)
+				(useDarkTheme ? CircleBaseColor::DarkPurple : CircleBaseColor::Green)
 			);
 			addspr->setScale(0.8f);
 
