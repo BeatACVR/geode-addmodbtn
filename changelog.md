@@ -1,5 +1,7 @@
+# 1.2.0-beta.1
+* Updated for Geode v6.0.0-beta.1.
 # 1.1.2
-* Fixed theming for Geode v5.8.2
+* Fixed theming for Geode v5.8.2.
 # 1.1.1
 * Fixed for Geode v5.4.X.
 # 1.1.0

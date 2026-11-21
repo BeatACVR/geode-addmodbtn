@@ -1,8 +1,8 @@
 #include <Geode/Geode.hpp>
 #include <Geode/ui/GeodeUI.hpp>
 #include <Geode/ui/Button.hpp>
-#include <alphalaneous.alphas_geode_utils/include/ObjectModify.hpp>
-#include <alphalaneous.alphas_geode_utils/include/Utils.hpp>
+#include <alphalaneous.alphas_geode_utils/ObjectModify.hpp>
+#include <alphalaneous.alphas_geode_utils/Utils.hpp>
 
 using namespace geode::prelude;
 
@@ -44,41 +44,15 @@ class $nodeModify(AddBtnModsLayer, ModsLayer) {
 				350
 			)->show();
 		}
-		takeAdvantageOfThatFuckingInstallButtonThatIHateSoFuckingMuch();
+		pressInstallModButton();
 	}
-
-	// everything below here is entirely written by me :3
-	// and its so atrociously bad that i should not be bragging about it.
-	struct Fields {
-		geode::Popup* m_settingsPopup;
-	};
 	
-	void takeAdvantageOfThatFuckingInstallButtonThatIHateSoFuckingMuch() {
-		// get geode's mod settings popup then click the install mod from file button, finally kill the popup.
+	void pressInstallModButton() {
 		Mod* geodeLoader = Loader::get()->getInstalledMod("geode.loader");
-		m_fields->m_settingsPopup = geode::openSettingsPopup(geodeLoader, false);
-		m_fields->m_settingsPopup->setVisible(false); // not necessary on my machine but i fear low end devices could need it.
-
-		CCNode* installNode = m_fields->m_settingsPopup->getChildByIDRecursive("install-from-file-button");
-		if (!installNode) {
-			fail("trying to find install button.");
+		if (!geodeLoader) {
+			FLAlertLayer::create("Install Failed", "geode.loader is not installed?", "What")->show();
 			return;
 		}
-		
-		geode::Button* installbtn = typeinfo_cast<geode::Button*>(installNode);
-		if (!installbtn) {
-			fail("trying to cast install button.");
-			return;
-		} else {
-			installbtn->activate();
-			m_fields->m_settingsPopup->removeFromParentAndCleanup(true);
-		}
-	}
-
-	void fail(std::string reason) {
-		if (m_fields->m_settingsPopup) {
-			m_fields->m_settingsPopup->removeFromParentAndCleanup(true);
-		}
-		FLAlertLayer::create("Install Failed", fmt::format("Failed while {}", reason), "OK")->show();
+		ButtonSettingPressedEventV3(geodeLoader, "action-buttons").send("install-from-file");
 	}
 };
